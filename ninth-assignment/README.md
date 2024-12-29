@@ -1,5 +1,23 @@
 # Ninth Assignment
 
+## Local Deployment
+
+```shell
+kind create cluster --name ceng459-cluster
+
+kubectl config use-context kind-ceng459-cluster
+
+docker build -t sefibra/ceng459-ninth-assignment:latest .
+
+kind load docker-image sefibra/ceng459-ninth-assignment:latest --name ceng459-cluster
+
+kubectl apply -f deployment.yaml
+
+# kubectl port-forward deployment/ceng459-ninth-assignment 8080:80
+```
+
+## GKE Deployment
+
 In this assignment, I have ran all of the steps below to successfuly complete the assignment. Here are some variables to keep in mind as well:
 
 ```
@@ -28,7 +46,6 @@ kubectl create deployment ceng459-ninth-assignment-deployment --image sefibra/ce
 # returned:  deployment.apps/ceng459-ninth-assignment-deployment created  
 
 # kubectl apply -f deployment.yaml
-
 # returned: service/py-application-cpu created
 # returned: deployment.apps/py-application-cpu created
 

@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: py-application-cpu
+  name: ceng459-ninth-assignment
   labels:
-    app: py-application-cpu
+    app: ceng459-ninth-assignment
 spec:
   type: ClusterIP
   selector:
-    app: py-application-cpu
+    app: ceng459-ninth-assignment
   ports:
     - protocol: TCP
       name: http
@@ -17,13 +17,13 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: py-application-cpu
+  name: ceng459-ninth-assignment
   labels:
-    app: py-application-cpu
+    app: ceng459-ninth-assignment
 spec:
   selector:
     matchLabels:
-      app: py-application-cpu
+      app: ceng459-ninth-assignment
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -33,11 +33,11 @@ spec:
   template:
     metadata:
       labels:
-        app: py-application-cpu
+        app: ceng459-ninth-assignment
     spec:
       containers:
-      - name: py-application-cpu
-        image: sefibra/py-application-cpu:v1.0.0
+      - name: ceng459-ninth-assignment
+        image: sefibra/ceng459-ninth-assignment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
