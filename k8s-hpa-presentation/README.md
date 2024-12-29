@@ -85,7 +85,7 @@ hey -z 60s -c 100 http://<your-app-url>
 OR
 
 ```shell
-docker build . -t aimvector/application-cpu:v1.0.0
+docker build . -t sefibra/application-cpu:v1.0.0
 docker push sefibra/application-cpu:v1.0.0
 kubectl apply -f deployment.yaml
 ```
@@ -96,7 +96,7 @@ kubectl exec -it traffic-generator sh
 # inside of the traffic-generator run: 
 apk add --no-cache wrk
 # and also we run
-wrk -c 5 -t 5 -d 99999 -H "Connection: Close" http://application-cpu
+wrk -c 5 -t 5 -d 99999 -H "Connection: Close" http://py-application-cpu
 ```
 
 Typically, we can use Prometheus to be alerted about high traffic. These alerts allow us HUMANS to act accordingly. But how can Kubernetes get this data, and have it act accordingly instead?
